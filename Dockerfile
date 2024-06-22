@@ -1,13 +1,19 @@
-# Use the specific Go version Alpine image
-FROM golang:1.16-alpine
+# Use a specific Go version Alpine image
+FROM golang:1.21.6-alpine
 
 # Set the working directory inside the container
 WORKDIR /test
 
-# Copy the Go module files to the working directory
-COPY . .
+# Copy go.mod and go.sum files to the working directory
+COPY go.mod go.sum ./
 
 # Download and install Go module dependencies
+RUN go mod download
+
+# Copy the entire project to the working directory
+COPY . .
+
+# Build the Go application
 RUN go build -o dockergin .
 
 # Expose port 8000 to the outside world

@@ -11,7 +11,7 @@ func getData(ctx *gin.Context) {
 func main() {
 	r := gin.Default()
 	r.GET("/", getData)
-	err := r.Run(":8080")
+	err := r.Run(":8000")
 	if err != nil {
 		return
 	}
