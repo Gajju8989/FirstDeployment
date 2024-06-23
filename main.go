@@ -6,7 +6,7 @@ import (
 )
 
 func getData(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{"message": "ok"})
+	ctx.JSON(http.StatusOK, gin.H{"message": "good"})
 }
 func main() {
 	r := gin.Default()
